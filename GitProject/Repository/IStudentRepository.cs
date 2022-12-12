@@ -9,10 +9,10 @@ namespace GitProject.Repository
    public interface IStudentRepository
     {
         Task<List<DotNet>> GetAll();
-        Task<DotNet> GetByid(int pid);
-        Task<int> Insert(DotNet prd);
-        Task<int> Update(DotNet prd);
-        Task<int> Delete(int id);
+        Task<DotNet> GetByid(int ID);
+        Task<int> Insert(DotNet dot);
+        Task<int> Update(DotNet dot);
+        Task<int> Delete(int ID);
 
     }
 }
