@@ -73,7 +73,22 @@ namespace GitProject.Controllers
         }
         public IActionResult Delete(int id)
         {
-            _service.Delete(id);
+            try
+            {
+                if (id==0)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    _service.Delete(id);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             return RedirectToAction("Index");
         }
     }
