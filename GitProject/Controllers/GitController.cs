@@ -1,5 +1,5 @@
 ﻿using GitProject.Models;
-using GitProject.Service;
+using GitProject.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
