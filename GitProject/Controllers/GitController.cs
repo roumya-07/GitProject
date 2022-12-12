@@ -1,4 +1,5 @@
-﻿using GitProject.Service;
+﻿using GitProject.Models;
+using GitProject.Service;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,30 @@ namespace GitProject.Controllers
         public IActionResult Index()
         {
             return View(_service.GetAll());
+        }
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(DotNet dn)
+        {
+            try
+            {
+                if (dn == null)
+                {
+                    return View();
+                }
+                else
+                {
+                    _service.Insert(dn);
+                }
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
         }
     }
 }
