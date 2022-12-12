@@ -11,20 +11,20 @@ namespace GitProject.Controllers
     public class GitController : Controller
     {
         private readonly IService _service;
-        protected GitController(IService service)
+        public GitController(IService service)
         {
             _service = service;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(_service.GetAll());
+            return View(await _service.GetAll());
         }
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Create(DotNet dn)
+        public async Task<IActionResult> Create(DotNet dn)
         {
             try
             {
@@ -34,7 +34,7 @@ namespace GitProject.Controllers
                 }
                 else
                 {
-                    _service.Insert(dn);
+                    await _service.Insert(dn);
                 }
                 return RedirectToAction("Index");
             }
@@ -43,12 +43,12 @@ namespace GitProject.Controllers
                 return View();
             }
         }
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Edit(DotNet dn)
+        public async Task<IActionResult> Edit(DotNet dn)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace GitProject.Controllers
                 }
                 else
                 {
-                    _service.Update(dn);
+                   await _service.Update(dn);
                 }
                 return RedirectToAction("Index");
             }
@@ -67,14 +67,14 @@ namespace GitProject.Controllers
                 return View();
             }
         }
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            return View(_service.GetOne(id));
+            return View(await _service.GetOne(id));
         }
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             
-             _service.Delete(id);                 
+             await _service.Delete(id);                 
             return RedirectToAction("Index");
         }
     }

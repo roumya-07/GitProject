@@ -21,7 +21,6 @@ namespace GitProject.Repository
             {
                 var cn = CreateConnection();
                 if (cn.State == ConnectionState.Closed) cn.Open();
-                if (cn.State == ConnectionState.Closed) cn.Open();
                 DynamicParameters param = new DynamicParameters();
                 param.Add("@ID", ID);
                 param.Add("@action", "Delete");
@@ -42,7 +41,6 @@ namespace GitProject.Repository
             {
                 var cn = CreateConnection();
                 if (cn.State == ConnectionState.Closed) cn.Open();
-                if (cn.State == ConnectionState.Closed) cn.Open();
                 DynamicParameters param = new DynamicParameters();
                 param.Add("@action", "All");
                 var x = cn.Query<DotNet>("SP_DotNet", param, commandType: CommandType.StoredProcedure).ToList();
@@ -61,7 +59,6 @@ namespace GitProject.Repository
             try
             {
                 var cn = CreateConnection();
-                if (cn.State == ConnectionState.Closed) cn.Open();
                 if (cn.State == ConnectionState.Closed) cn.Open();
                 DynamicParameters param = new DynamicParameters();
                 param.Add("@ID", ID);
@@ -82,7 +79,6 @@ namespace GitProject.Repository
             try
             {
                 var cn = CreateConnection();
-                if (cn.State == ConnectionState.Closed) cn.Open();
                 if (cn.State == ConnectionState.Closed) cn.Open();
                 DynamicParameters param = new DynamicParameters();
                 param.Add("@ID", dot.ID);
@@ -106,7 +102,6 @@ namespace GitProject.Repository
             try
             {
                 var cn = CreateConnection();
-                if (cn.State == ConnectionState.Closed) cn.Open();
                 if (cn.State == ConnectionState.Closed) cn.Open();
                 DynamicParameters param = new DynamicParameters();
                 param.Add("@ID", dot.ID);
