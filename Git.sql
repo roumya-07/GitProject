@@ -20,7 +20,7 @@ begin
 if(@Action = 'Insert')
 Insert Into NewDotNet values(@ID,@Name,@Phone,@Address)
 else if(@Action = 'Update')
-Update NewDotNet Set ID=@ID,Name=@Name,Phone=@Phone,Address=@Address
+Update NewDotNet Set ID=@ID,Name=@Name,Phone=@Phone,Address=@Address Where ID=@ID
 else if(@Action='Delete')
 delete from  NewDotNet where ID=@ID where ID=@ID
 else if(@Action='All')
