@@ -22,7 +22,7 @@ Insert Into NewDotNet values(@ID,@Name,@Phone,@Address)
 else if(@Action = 'Update')
 Update NewDotNet Set ID=@ID,Name=@Name,Phone=@Phone,Address=@Address
 else if(@Action='Delete')
-delete from  NewDotNet where ID=@ID
+delete from  NewDotNet where ID=@ID where ID=@ID
 else if(@Action='All')
 Select * From NewDotNet
 else if(@Action='SelectOne')
