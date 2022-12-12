@@ -7,5 +7,6 @@ namespace GitProject.Repository
 {
     public class StudentRepository
     {
+
     }
 }
