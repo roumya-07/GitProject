@@ -75,14 +75,7 @@ namespace GitProject.Controllers
         {
             try
             {
-                if (id==0)
-                {
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    _service.Delete(id);
-                }
+                _service.Delete(id);
             }
             catch (Exception)
             {
