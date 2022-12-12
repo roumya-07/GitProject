@@ -1,4 +1,5 @@
 ﻿using GitProject.Models;
+using GitProject.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,29 +9,36 @@ namespace GitProject.Service
 {
     public class Service : IService
     {
-        public Task<int> Delete(int ID)
+        private readonly IStudentRepository _Repository;
+
+        public Service(IStudentRepository Repository)
         {
-            throw new NotImplementedException();
+            _Repository = Repository;
+        }
+        public async Task<int> Delete(int ID)
+        {
+            return await _Repository.Delete(ID);
         }
 
-        public Task<List<DotNet>> GetAll()
+        public async Task<List<DotNet>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _Repository.GetAll();
         }
 
-        public Task<DotNet> GetOne(int ID)
+        public async Task<DotNet> GetOne(int ID)
         {
-            throw new NotImplementedException();
+            return await _Repository.GetByid(ID);
         }
 
-        public Task<int> Insert(DotNet Dt)
+        public async Task<int> Insert(DotNet Dt)
         {
-            throw new NotImplementedException();
+
+            return await _Repository.Insert(Dt);
         }
 
-        public Task<int> Update(DotNet Dt)
+        public async Task<int> Update(DotNet Dt)
         {
-            throw new NotImplementedException();
+            return await _Repository.Update(Dt);
         }
     }
 }
