@@ -45,7 +45,7 @@ namespace GitProject.Controllers
         }
         public async Task<IActionResult> Edit(int id)
         {
-            return View();
+            return View(await _service.GetOne(id));
         }
         [HttpPost]
         public async Task<IActionResult> Edit(DotNet dn)
