@@ -43,5 +43,38 @@ namespace GitProject.Controllers
                 return View();
             }
         }
+        public IActionResult Edit(int id)
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Edit(DotNet dn)
+        {
+            try
+            {
+                if (dn == null)
+                {
+                    return View();
+                }
+                else
+                {
+                    _service.Update(dn);
+                }
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
+        }
+        public IActionResult Details(int id)
+        {
+            return View(_service.GetOne(id));
+        }
+        public IActionResult Delete(int id)
+        {
+            _service.Delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }
