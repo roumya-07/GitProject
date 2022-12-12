@@ -25,4 +25,6 @@ else if(@Action='Delete')
 delete from  NewDotNet where ID=@ID
 else if(@Action='All')
 Select * From NewDotNet
+else if(@Action='SelectOne')
+select * from NewDotNet where ID=@ID
 end
